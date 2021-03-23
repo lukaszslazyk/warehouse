@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".application.ui.product.view.ProductsListActivity">
+    <item
+        android:id="@+id/action_reload"
+        android:orderInCategory="100"
+        android:title="Reload"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_offline_mode"
+        android:orderInCategory="100"
+        android:title="Enable offline mode"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_show_sync_errors"
+        android:orderInCategory="100"
+        android:title="Show synchronization errors"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_clear_local_data"
+        android:orderInCategory="100"
+        android:title="Clear local data"
+        app:showAsAction="never" />
+</menu>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="studia.ium.warehouseandroidclient.application.ui.product.viewmodel.ProductDetailsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".application.ui.product.view.ProductDetailsActivity"
+        tools:showIn="@layout/activity_product_details">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_margin_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="24dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_margin_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="24dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/buttons_group_layout"
+            android:layout_width="0dp"
+            android:layout_height="128dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_margin_right"
+            app:layout_constraintHorizontal_bias="0.166"
+            app:layout_constraintStart_toStartOf="@+id/guideline_margin_left"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/increase_quantity_of_product_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:layout_marginBottom="64dp"
+                android:clickable="true"
+                app:backgroundTint="@color/increase_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/decrease_quantity_of_product_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:maxImageSize="24dp"
+                app:srcCompat="@drawable/ic_increase_white_24dp" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/decrease_quantity_of_product_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:layout_marginBottom="64dp"
+                android:backgroundTint="@color/decrease_button"
+                android:clickable="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/edit_product_button"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/increase_quantity_of_product_button"
+                app:layout_constraintTop_toTopOf="parent"
+                app:maxImageSize="24dp"
+                app:srcCompat="@drawable/ic_decrease_white_24dp" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/edit_product_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:layout_marginBottom="64dp"
+                android:backgroundTint="@color/edit_button"
+                android:clickable="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/delete_product_button"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/decrease_quantity_of_product_button"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_edit_white_24dp" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/delete_product_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:layout_marginBottom="64dp"
+                android:backgroundTint="@color/delete_button"
+                android:clickable="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/edit_product_button"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_delete_white_24dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TableLayout
+            android:id="@+id/product_detail_table"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_margin_right"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline_margin_left"
+            app:layout_constraintTop_toBottomOf="@+id/buttons_group_layout">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:id="@+id/product_manufacturer_name_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Manufacturer name:"
+                    android:textColor="@color/product_detail_table_text" />
+
+                <TextView
+                    android:id="@+id/product_manufacturer_name_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@{viewModel.product.manufacturerName}"
+                    android:textColor="@color/product_detail_table_text" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:id="@+id/product_model_name_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Model name:"
+                    android:textColor="@color/product_detail_table_text" />
+
+                <TextView
+                    android:id="@+id/product_model_name_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@{viewModel.product.modelName}"
+                    android:textColor="@color/product_detail_table_text" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:id="@+id/product_price_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Price:"
+                    android:textColor="@color/product_detail_table_text" />
+
+                <TextView
+                    android:id="@+id/product_price_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@{viewModel.product.getPresentablePrice()}"
+                    android:textColor="@color/product_detail_table_text" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:id="@+id/product_expiration_date_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Expiration date:"
+                    android:textColor="@color/product_detail_table_text" />
+
+                <TextView
+                    android:id="@+id/product_expiration_date_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@{viewModel.product.getPresentableExpirationDate()}"
+                    android:textColor="@color/product_detail_table_text" />
+            </TableRow>
+
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/quantities_list_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:text="Quantities of product in warehouses:"
+            android:textColor="@color/product_detail_table_text"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_margin_right"
+            app:layout_constraintStart_toStartOf="@+id/guideline_margin_left"
+            app:layout_constraintTop_toBottomOf="@+id/product_detail_table" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/quantities_list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_margin_right"
+            app:layout_constraintStart_toStartOf="@+id/guideline_margin_left"
+            app:layout_constraintTop_toBottomOf="@+id/quantities_list_title">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

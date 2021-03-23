@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="studia.ium.warehouseandroidclient">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".application.configuration.WarehouseClientApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".application.ui.product.view.ProductSyncErrorsListActivity"
+            android:label="@string/title_activity_product_sync_errors_list"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".application.ui.product.view.AddProductActivity"
+            android:label="@string/title_activity_add_product"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".application.ui.product.view.DecreaseQuantityOfProductActivity"
+            android:label="@string/title_activity_decrease_quantity_of_product"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".application.ui.product.view.IncreaseQuantityOfProductActivity"
+            android:label="@string/title_activity_increase_quantity_of_product"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".application.ui.product.view.EditProductActivity"
+            android:label="@string/title_activity_increase_quantity_of_product"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".application.ui.product.view.ProductDetailsActivity"
+            android:label="@string/title_activity_product_detail"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".application.ui.product.view.ProductsListActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
